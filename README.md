@@ -1,4 +1,5 @@
 # TinySol & TinySol-2-Brainfuck Compiler
+<center><img width=75% src='./TinySol.jpg'></img></center>
 
 ## Overview
 TinySol is a subset of the Solidity language, designed to be compatible with Brainfuck, a Turing-complete language with a minimalist instruction set. This project includes a compiler that translates TinySol code into Brainfuck, allowing for the execution of smart contracts and other logic within the Brainfuck environment.
