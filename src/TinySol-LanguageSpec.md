@@ -18,15 +18,15 @@ TinySol aims to s̵i̵m̵p̵l̵i̵f̵y̵ make possible Smart Contract developmen
 
 Variables are statically typed at declaration. Supported types include integers which are compiled into Brainfuck cell values.
 
-\```tinysol
+```tinysol
 int count;
-\```
+```
 
 Variable assignment and initialization:
 
-\```tinysol
+```tinysol
 int total = 10;
-\```
+```
 
 ### **Operators**
 
@@ -38,48 +38,48 @@ int total = 10;
 
 TinySol includes conditional `if` statements with optional `else` clauses.
 
-\```tinysol
+```tinysol
 if (condition) {
     // Code for truthy condition
 } else {
     // Code for falsy condition
 }
-\```
+```
 
 #### While Loop
 
 Loops are created with the `while` keyword and are executed as long as a condition is true.
 
-\```tinysol
+```tinysol
 while (condition) {
     // Loop body code
 }
-\```
+```
 
 ### Functions
 
 Functions are first-class citizens in TinySol and are declared with a return type, name, and parameters.
 
-\```tinysol
+```tinysol
 function int add(int x, int y) {
     return x + y;
 }
-\```
+```
 
 Calling a function:
 
-\```tinysol
+```tinysol
 int result;
 result = add(5, 3);
-\```
+```
 
 ## Comments
 
 Single-line comments are supported with `//`.
 
-\```tinysol
+```tinysol
 // This is a comment
-\```
+```
 
 ## Data Types
 
