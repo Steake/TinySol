@@ -1,5 +1,5 @@
 # TinySol to Brainfuck Translator
-
+<center><img width='75%' style='margin:auto;' src='./TinySol.jpg'></img></center>
 ## Overview
 
 TinySol is a sophisticated source-to-source compiler that translates a subset of a high-level programming language (TinySol) to Brainfuck, a minimalist Turing-complete programming language. This project demonstrates advanced compiler design principles, including abstract syntax tree (AST) manipulation, memory management, and code generation.
