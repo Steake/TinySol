@@ -1,0 +1,40 @@
+// Prime Number Checker
+// Demonstrates modulo operation in computational logic
+
+int is_prime(int n) {
+    // Handle edge cases
+    if (n <= 1) {
+        return 0;  // Not prime
+    }
+    
+    // Check for divisibility
+    int i = 2;
+    while (i * i <= n) {
+        if (n % i == 0) {
+            return 0;  // Not prime
+        }
+        i = i + 1;
+    }
+    
+    return 1;  // Prime number
+}
+
+int count_primes_in_range(int start, int end) {
+    int count = 0;
+    int current = start;
+    
+    while (current <= end) {
+        if (is_prime(current) == 1) {
+            count = count + 1;
+        }
+        current = current + 1;
+    }
+    
+    return count;
+}
+
+int main() {
+    // Find number of primes between 10 and 20
+    int prime_count = count_primes_in_range(10, 20);
+    return prime_count;
+}

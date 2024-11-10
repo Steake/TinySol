@@ -1,74 +1,113 @@
-# TinySol & TinySol-2-Brainfuck Compiler
-<center><img width='75%' style='margin:auto;' src='./TinySol.jpg'></img></center>
+# TinySol to Brainfuck Translator
 
 ## Overview
-TinySol is a subset of the Solidity language, designed to be compatible with Brainfuck, a Turing-complete language with a minimalist instruction set. This project includes a compiler that translates TinySol code into Brainfuck, allowing for the execution of smart contracts and other logic within the Brainfuck environment.
 
-## Features of TinySol
-- **Basic Data Types**: Supports integers and basic data types.
-- **Variable Declarations and Assignments**: Allows for the declaration and assignment of variables.
-- **Control Structures**: Includes if-else statements and for/while loops.
-- **Function Calls**: Basic support for function calls with parameters and return values.
-- **Arithmetic and Logical Operations**: Supports basic arithmetic operations and logical expressions.
+TinySol is a sophisticated source-to-source compiler that translates a subset of a high-level programming language (TinySol) to Brainfuck, a minimalist Turing-complete programming language. This project demonstrates advanced compiler design principles, including abstract syntax tree (AST) manipulation, memory management, and code generation.
 
-## Using the Compiler
-To use the TinySol to Brainfuck compiler, follow these steps:
-1. Write your TinySol code according to the specifications and limitations outlined above.
-2. Use the `BrainfuckTranslator` class to translate your TinySol code into Brainfuck.
-3. Run the translated Brainfuck code in any standard Brainfuck interpreter.
+## Features
 
-## Examples
-Below are some examples of TinySol code and their corresponding Brainfuck translations.
+- Modular translation architecture
+- Support for complex computational scenarios
+- Turing-complete translation
+- Extensive test coverage
+- Flexible and extensible design
 
-### Example 1: Variable Declaration
-**TinySol Code:**
-```solidity
-int x = 5;
+## Architecture
+
+### Translation Modules
+
+The translation process is broken down into specialized modules:
+
+1. **Memory Management** (`memory_manager.py`)
+   - Tracks memory allocation
+   - Manages memory cell tracking
+   - Supports complex memory operations
+
+2. **Base Translator** (`base_translator.py`)
+   - Provides core translation utilities
+   - Implements fundamental translation methods
+
+3. **Arithmetic Translator** (`arithmetic_translator.py`)
+   - Handles arithmetic operations
+   - Translates multiplication, addition, and modulo operations
+   - Implements complex Brainfuck arithmetic algorithms
+
+4. **Condition Translator** (`condition_translator.py`)
+   - Manages conditional logic translation
+   - Supports various comparison and logical operations
+
+5. **Expression Translator** (`expression_translator.py`)
+   - Translates complex expressions
+   - Handles binary and unary expressions
+   - Manages memory cell allocation for expressions
+
+6. **Statement Translator** (`statement_translator.py`)
+   - Translates programming constructs
+   - Supports variable declarations
+   - Handles loops and conditional statements
+
+7. **Node Translators** (`node_translators.py`)
+   - Orchestrates the overall translation process
+   - Coordinates between different translation modules
+
+## Supported Constructs
+
+- Variable declarations
+- Arithmetic operations (+, -, *, /)
+- Comparison operations (==, <=, <, >, >=)
+- Logical operations (&&, ||)
+- For loops
+- Conditional statements (if)
+
+## Installation
+
+```bash
+git clone https://github.com/steake/TinySol.git
+cd TinySol
+pip install -r requirements.txt
 ```
 
-**Brainfuck Translation:**
-```brainfuck
->+++++
+## Running Tests
+
+```bash
+python run_tests.py
 ```
 
-### Example 2: Basic For Loop
-**TinySol Code:**
-```solidity
-for (int i = 0; i < 5; i++) {
-    // Loop body
+## Example
+
+```python
+# TinySol code
+tinysol_code = """
+int n = 5;
+int factorial = 1;
+
+for (int i = 1; i <= n; i++) {
+    factorial = factorial * i;
 }
+"""
+
+# Translate to Brainfuck
+brainfuck_code = translate_to_brainfuck(tinysol_code)
 ```
 
-**Brainfuck Translation:**
-```brainfuck
-[->+<]
-```
+## Limitations
 
-### Example 3: If-Else Statement
-**TinySol Code:**
-```solidity
-if (x > 1) {
-    // If body
-} else {
-    // Else body
-}
-```
+- Subset of language features supported
+- Complex computational scenarios may require optimization
+- Performance overhead due to translation complexity
 
-**Brainfuck Translation:**
+## Future Improvements
 
-```brainfuck
-[>]
-```
+- Enhanced arithmetic algorithms
+- More comprehensive language support
+- Performance optimizations
+- Additional test cases
 
-## Next Steps
-- Extensive testing with various TinySol code samples.
-- Further optimization of the Brainfuck translation logic.
-- Comprehensive documentation and example codes for TinySol features.
-- Final compilation and review of the TinySol to Brainfuck compiler.
+## Contributing
 
-## Contribution
-Contributions to the TinySol project and the Brainfuck compiler are welcome. Feel free to fork the repository, make your changes, and submit a pull request.
+Contributions are welcome! Please submit pull requests or open issues on GitHub.
 
-## Licence
 
-GPLv3
+## Author
+
+GitHub: @steake

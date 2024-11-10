@@ -1,0 +1,27 @@
+// Advanced Fibonacci Sequence Generator
+// Demonstrates function definition, recursion-like behavior, and computational complexity
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+int calculate_complex_sequence(int x) {
+    int fib = fibonacci(x);
+    int fact = factorial(x);
+    return fib + fact;
+}
+
+int main() {
+    int result = calculate_complex_sequence(5);
+    return result;
+}

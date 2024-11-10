@@ -1,0 +1,102 @@
+// Advanced Computational Complexity Simulation
+// Demonstrates sophisticated algorithmic techniques and problem-solving strategies
+
+int is_prime(int n) {
+    // Efficient prime number detection with complexity optimization
+    if (n <= 1) {
+        return 0;  // Not prime
+    }
+    
+    if (n <= 3) {
+        return 1;  // 2 and 3 are prime
+    }
+    
+    // Optimization: Check only up to square root
+    int sqrt_n = 0;
+    while (sqrt_n * sqrt_n <= n) {
+        sqrt_n = sqrt_n + 1;
+    }
+    sqrt_n = sqrt_n - 1;
+    
+    int i = 2;
+    while (i <= sqrt_n) {
+        if (n % i == 0) {
+            return 0;  // Not prime
+        }
+        i = i + 1;
+    }
+    
+    return 1;  // Prime number
+}
+
+int count_primes_in_range(int start, int end) {
+    // Efficient prime counting algorithm
+    int count = 0;
+    int current = start;
+    
+    while (current <= end) {
+        if (is_prime(current) == 1) {
+            count = count + 1;
+        }
+        current = current + 1;
+    }
+    
+    return count;
+}
+
+int complex_number_analysis(int real, int imag) {
+    // Advanced complex number computational analysis
+    // Simulate complex number operations with integer arithmetic
+    
+    // Magnitude calculation
+    int squared_magnitude = (real * real) + (imag * imag);
+    
+    // Integer square root computation
+    int magnitude = 0;
+    while (magnitude * magnitude <= squared_magnitude) {
+        magnitude = magnitude + 1;
+    }
+    magnitude = magnitude - 1;
+    
+    // Angle approximation using integer arithmetic
+    int angle = 0;
+    if (real != 0) {
+        // Simplified arctangent approximation
+        angle = imag / real;
+    }
+    
+    return magnitude + angle;
+}
+
+int advanced_computational_strategy(int input_value) {
+    // Comprehensive computational analysis
+    
+    // Prime number analysis
+    int prime_count = count_primes_in_range(2, input_value);
+    
+    // Complex number simulation
+    int complex_analysis = complex_number_analysis(input_value, input_value / 2);
+    
+    // Combine results with sophisticated computational logic
+    return prime_count + complex_analysis;
+}
+
+int main() {
+    // Demonstrate advanced computational complexity
+    int test_values[5];
+    test_values[0] = 10;   // Small number
+    test_values[1] = 20;   // Medium number
+    test_values[2] = 30;   // Another medium number
+    test_values[3] = 40;   // Larger number
+    test_values[4] = 50;   // Even larger number
+    
+    // Perform comprehensive computational analysis
+    int total_result = 0;
+    int i = 0;
+    while (i < 5) {
+        total_result = total_result + advanced_computational_strategy(test_values[i]);
+        i = i + 1;
+    }
+    
+    return total_result;
+}

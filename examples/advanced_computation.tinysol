@@ -1,0 +1,35 @@
+// Advanced Computational Example
+// Demonstrates complex function interactions, recursion, and computational logic
+
+int calculate_gcd(int a, int b) {
+    // Euclidean algorithm for Greatest Common Divisor
+    if (b == 0) {
+        return a;
+    }
+    return calculate_gcd(b, a % b);
+}
+
+int factorial(int n) {
+    // Recursive factorial calculation
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+int complex_sequence(int x) {
+    // Complex computational sequence
+    int gcd = calculate_gcd(x, x + 1);
+    int fact = factorial(x);
+    return gcd * fact;
+}
+
+int main() {
+    // Demonstrate advanced computational capabilities
+    int result1 = complex_sequence(5);
+    int result2 = complex_sequence(6);
+    
+    // Combine results to show multi-step computation
+    int final_result = result1 + result2;
+    return final_result;
+}

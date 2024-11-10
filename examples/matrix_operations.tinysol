@@ -1,0 +1,72 @@
+// Advanced Matrix Operation Simulation
+// Demonstrates complex control flow, nested loops, and computational logic
+
+int matrix_trace(int rows, int cols) {
+    // Simulate a matrix and calculate its trace
+    int matrix[10][10];
+    int trace = 0;
+    int i = 0;
+    
+    // Initialize matrix
+    while (i < rows) {
+        int j = 0;
+        while (j < cols) {
+            // Fill matrix with a computational pattern
+            matrix[i][j] = (i * cols) + j;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    
+    // Calculate trace (sum of diagonal elements)
+    i = 0;
+    while (i < rows) {
+        trace = trace + matrix[i][i];
+        i = i + 1;
+    }
+    
+    return trace;
+}
+
+int matrix_transformation(int n) {
+    // Perform complex matrix transformation
+    int matrix[10][10];
+    int result = 0;
+    int i = 0;
+    
+    // Initialize matrix
+    while (i < n) {
+        int j = 0;
+        while (j < n) {
+            // Complex initialization strategy
+            matrix[i][j] = (i * n + j) % (n + 1);
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    
+    // Complex transformation
+    i = 0;
+    while (i < n) {
+        int j = 0;
+        while (j < n) {
+            // Advanced computational logic
+            if ((i + j) % 2 == 0) {
+                result = result + matrix[i][j];
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    
+    return result;
+}
+
+int main() {
+    // Demonstrate matrix operations
+    int trace_result = matrix_trace(5, 5);
+    int transform_result = matrix_transformation(6);
+    
+    // Combine results to show multi-step computation
+    return trace_result + transform_result;
+}
