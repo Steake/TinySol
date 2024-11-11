@@ -7,7 +7,8 @@ validating the translation and interpretation process.
 
 import pytest
 from src.ast2brainfuck import translate_to_brainfuck
-from src.brainfuck_interpreter import interpret_brainfuck
+from src.brainfuck_interpreter import interpret_brainfuck as our_interpreter
+from brainfuck import NiceInterpreter
 
 def test_fibonacci_sequence_generation():
     """
@@ -36,13 +37,22 @@ def test_fibonacci_sequence_generation():
     # Then the Brainfuck code should be valid
     assert brainfuck_code is not None
     assert len(brainfuck_code) > 0
+    print(f"Generated Brainfuck code:\n{brainfuck_code}")
     
     # And when I interpret the Brainfuck code
-    output = interpret_brainfuck(brainfuck_code)
+    our_output = our_interpreter(brainfuck_code)
+    external_interpreter = NiceInterpreter()
+    external_interpreter.execute(brainfuck_code)
+    external_output = [cell for cell in external_interpreter.array if cell != 0]
+    
+    print(f"Our output: {our_output}")
+    print(f"External output: {external_output}")
     
     # Then the output should match the expected Fibonacci sequence
     expected_fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-    assert len(output) >= len(expected_fibonacci)
+    assert len(our_output) >= len(expected_fibonacci)
+    assert our_output == external_output
+    assert expected_fibonacci == our_output[:len(expected_fibonacci)]
 
 def test_prime_number_checker():
     """
@@ -69,12 +79,20 @@ def test_prime_number_checker():
     # Then the Brainfuck code should be valid
     assert brainfuck_code is not None
     assert len(brainfuck_code) > 0
+    print(f"Generated Brainfuck code:\n{brainfuck_code}")
     
     # And when I interpret the Brainfuck code
-    output = interpret_brainfuck(brainfuck_code)
+    our_output = our_interpreter(brainfuck_code)
+    external_interpreter = NiceInterpreter()
+    external_interpreter.execute(brainfuck_code)
+    external_output = [cell for cell in external_interpreter.array if cell != 0]
+    
+    print(f"Our output: {our_output}")
+    print(f"External output: {external_output}")
     
     # Then the output should indicate the number is prime
-    assert 1 in output  # 17 is a prime number
+    assert our_output == external_output
+    assert 1 in our_output  # 17 is a prime number
 
 def test_factorial_computation():
     """
@@ -99,12 +117,20 @@ def test_factorial_computation():
     # Then the Brainfuck code should be valid
     assert brainfuck_code is not None
     assert len(brainfuck_code) > 0
+    print(f"Generated Brainfuck code:\n{brainfuck_code}")
     
     # And when I interpret the Brainfuck code
-    output = interpret_brainfuck(brainfuck_code)
+    our_output = our_interpreter(brainfuck_code)
+    external_interpreter = NiceInterpreter()
+    external_interpreter.execute(brainfuck_code)
+    external_output = [cell for cell in external_interpreter.array if cell != 0]
+    
+    print(f"Our output: {our_output}")
+    print(f"External output: {external_output}")
     
     # Then the output should match the factorial of 5 (120)
-    assert 120 in output
+    assert our_output == external_output
+    assert 120 in our_output
 
 def test_sum_of_multiples():
     """
@@ -131,9 +157,17 @@ def test_sum_of_multiples():
     # Then the Brainfuck code should be valid
     assert brainfuck_code is not None
     assert len(brainfuck_code) > 0
+    print(f"Generated Brainfuck code:\n{brainfuck_code}")
     
     # And when I interpret the Brainfuck code
-    output = interpret_brainfuck(brainfuck_code)
+    our_output = our_interpreter(brainfuck_code)
+    external_interpreter = NiceInterpreter()
+    external_interpreter.execute(brainfuck_code)
+    external_output = [cell for cell in external_interpreter.array if cell != 0]
+    
+    print(f"Our output: {our_output}")
+    print(f"External output: {external_output}")
     
     # Then the output should match the sum of multiples of 3 and 5 below 100
-    assert 2318 in output  # Sum of multiples of 3 and 5 below 100
+    assert our_output == external_output
+    assert 2318 in our_output  # Sum of multiples of 3 and 5 below 100
