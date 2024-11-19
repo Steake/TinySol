@@ -1,5 +1,5 @@
 # TinySol to Brainfuck Translator
-<center><img width='75%' style='margin:auto;' src='./TinySol.jpg'></img></center>
+<p align="center"><img width='75%' style='margin:auto;' src='./TinySol.jpg'></img></p>
 
 ---
 
